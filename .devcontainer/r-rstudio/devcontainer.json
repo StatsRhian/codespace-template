@@ -1,0 +1,21 @@
+{
+  "name": "R (rocker/r-ver + RStudio)",
+  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4.6",
+  "features": {
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+      "packages": "tidyverse,lubridate,here,languageserver,styler,lintr,roxygen2,testthat,usethis,renv"
+    },
+    /* setup RStudio server */
+    "ghcr.io/rocker-org/devcontainer-features/rstudio-server": {}
+  },
+  /* setup RStudio server */
+  "postAttachCommand": {
+    "rstudio-start": "rserver"
+  },
+  "forwardPorts": [8787],
+  "portsAttributes": {
+    "8787": {
+      "label": "RStudio IDE"
+    }
+  }
+}
